@@ -21,13 +21,22 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="user_registration_id")
+	private Integer userRegId;
+	
 	@Column(name = "created_dt")
 	private Date createdDt;
 
 	@Column(name = "user_name")
 	private String username;
 
+	public Integer getUserRegId() {
+		return userRegId;
+	}
 
+	public void setUserRegId(Integer userRegId) {
+		this.userRegId = userRegId;
+	}
 
 	public Date getCreatedDt() {
 		return createdDt;
@@ -47,7 +56,11 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [created_dt=" + createdDt + ", username=" + username + "]";
+		return "User [userRegId=" + userRegId + ", createdDt=" + createdDt + ", username=" + username + "]";
 	}
+
+
+
+	
 
 }
