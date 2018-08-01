@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
+import com.su.entities.ProductRequest;
 import com.su.entities.User;
 import com.su.entities.UserRequest;
 import com.su.services.Services;
@@ -55,4 +56,37 @@ public class UserResource {
 		return Response.ok(userLoginResponse).build();
 		
 	}
+	
+	@GET
+	@Path("/categoryMenu")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	/* fetch the category menu for the website */
+	public Response fetchCategoryMenu() {
+		Object categoryMenuResponse = services.categoryMenu();
+		return Response.ok(categoryMenuResponse).build();
+	}
+	
+	
+	@GET
+	@Path("/fetchProducts")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	/* Fetch the product based on the categoryId */
+	public Response products() {
+		Object categoriesResponse = services.products();
+		return Response.ok(categoriesResponse).build();
+	}
+	
+	@POST
+	@Path("/ProductDetails")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	/* insert the product details to the table */
+	public Response productDetails(@RequestBody ProductRequest productRequest) {
+		Object productDetailsReponse = services.procuctDetails(productRequest);
+		return Response.ok(productDetailsReponse).build();
+	}
+	
+	
 }
