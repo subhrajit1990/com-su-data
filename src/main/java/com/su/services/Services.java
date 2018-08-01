@@ -63,4 +63,9 @@ public class Services {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public Object modifyUser(UserRequest userRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

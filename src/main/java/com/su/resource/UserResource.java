@@ -57,6 +57,17 @@ public class UserResource {
 		
 	}
 	
+	@POST
+	@Path("/modifyUser")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response modifyUser(@RequestBody UserRequest userRequest) {
+		Object modifyUserResponse = services.modifyUser(userRequest);
+		return Response.ok(modifyUserResponse).build();
+		
+	}
+	
+	
 	@GET
 	@Path("/categoryMenu")
 	@Produces(MediaType.APPLICATION_JSON)
