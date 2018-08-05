@@ -1,0 +1,12 @@
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/resource/UserResource.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/entities/Product.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/config/SpringDataConfig.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/entities/User.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/SprinBootSampleApplication.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/entities/ProductImage.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/entities/UserRequest.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/repositories/UserRepository.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/services/Services.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/config/JerseyConfig.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/repositories/ProductRepository.java
+/home/subhrajit/Desktop/com-su-data/src/main/java/com/su/entities/ProductRequest.java

@@ -51,7 +51,7 @@ public class UserResource {
 	@Path("/login")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response login(@RequestBody UserRequest userRequest) {
+	public Response login(@RequestBody UserRequest userRequest) throws Exception {
 		Object userLoginResponse = services.userLogin(userRequest);
 		return Response.ok(userLoginResponse).build();
 		
@@ -61,7 +61,7 @@ public class UserResource {
 	@Path("/modifyUser")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response modifyUser(@RequestBody UserRequest userRequest) {
+	public Response modifyUser(@RequestBody UserRequest userRequest) throws Exception {
 		Object modifyUserResponse = services.modifyUser(userRequest);
 		return Response.ok(modifyUserResponse).build();
 		
@@ -94,7 +94,7 @@ public class UserResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	/* insert the product details to the table */
-	public Response productDetails(@RequestBody ProductRequest productRequest) {
+	public Response productDetails(@RequestBody ProductRequest productRequest) throws Exception {
 		Object productDetailsReponse = services.procuctDetails(productRequest);
 		return Response.ok(productDetailsReponse).build();
 	}

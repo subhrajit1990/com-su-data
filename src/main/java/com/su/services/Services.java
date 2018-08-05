@@ -15,9 +15,12 @@ import org.hibernate.hql.internal.ast.tree.IsNotNullLogicOperatorNode;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
+import com.su.entities.Product;
+import com.su.entities.ProductImage;
 import com.su.entities.ProductRequest;
 import com.su.entities.User;
 import com.su.entities.UserRequest;
+import com.su.repositories.ProductRepository;
 import com.su.repositories.UserRepository;
 
 @Service
@@ -27,6 +30,9 @@ public class Services {
 	HashMap<String, Object> response = null;
 	@Inject
 	UserRepository userRepository;
+	
+	@Inject
+	ProductRepository productRepository;
 
 	public ArrayList<User> viewUsers() {
 		ArrayList<User> users = Lists.newArrayList(userRepository.findAll());
@@ -34,7 +40,7 @@ public class Services {
 		return users;
 	}
 
-	public Object userLogin(UserRequest userRequest) {
+	public Object userLogin(UserRequest userRequest) throws Exception {
 		// TODO Auto-generated method 
 		response = new HashMap<String, Object>();
 		Optional<User> userLoginRes = userRepository.findById(userRequest.getUserId()); //(userRequest.getUserId());
@@ -49,9 +55,38 @@ public class Services {
 		return response;
 	}
 
-	public Object procuctDetails(ProductRequest productRequest) {
+	public Object procuctDetails(ProductRequest productRequest)throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		
+		response = new HashMap<String, Object>();
+		
+		Product product = new Product();
+		ProductImage productImage = new ProductImage();
+		
+		product.setProductId(productRequest.getProductId());
+		product.setHeaderTopLeftText(productRequest.getHeaderTopLeftText());
+		product.setHeaderTopRightText(productRequest.getHeaderTopRightText());
+		product.setProductCtaText(productRequest.getProductCtaText());
+		product.setProductDetails(productRequest.getProductDetails());
+		product.setProductName(productRequest.getProductName());
+		product.setProductPrice(productRequest.getProductPrice());
+		
+		
+		productImage.setProductImageThumbnailUrl(productRequest.getProductImageThumbnailUrl());
+		productImage.setProductImageUrl(productRequest.getProductImageUrl());
+		
+		product.setProductImage(productImage);
+		
+		
+		productImage.setProduct(product);
+		
+		//product.getProductImage().(productImage);
+		
+		productRepository.save(product);
+		
+		response.put("status", "success");
+		
+		return response;
 	}
 
 	public Object categoryMenu() {
@@ -64,7 +99,7 @@ public class Services {
 		return null;
 	}
 
-	public Object modifyUser(UserRequest userRequest) {
+	public Object modifyUser(UserRequest userRequest) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
