@@ -2,6 +2,7 @@ package com.su.services;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ import com.su.entities.ProductImage;
 import com.su.entities.ProductRequest;
 import com.su.entities.User;
 import com.su.entities.UserRequest;
+import com.su.repositories.AllProductsRepository;
 import com.su.repositories.ProductRepository;
 import com.su.repositories.UserRepository;
 
@@ -34,6 +36,9 @@ public class Services {
 	@Inject
 	ProductRepository productRepository;
 
+	@Inject
+	AllProductsRepository allProductsRepository;
+	
 	public ArrayList<User> viewUsers() {
 		ArrayList<User> users = Lists.newArrayList(userRepository.findAll());
 		logger.info("DATA " + users.toString());
@@ -96,7 +101,10 @@ public class Services {
 
 	public Object products() {
 		// TODO Auto-generated method stub
-		return null;
+		response = new HashMap<String, Object>();
+		List<Object> allProductsResponse = allProductsRepository.fetchAll();
+		response.put("res",allProductsResponse);
+		return response;
 	}
 
 	public Object modifyUser(UserRequest userRequest) throws Exception {

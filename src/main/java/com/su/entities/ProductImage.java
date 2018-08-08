@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "product_Image")
+@Table(name = "product_image")
 public class ProductImage {
 
 	

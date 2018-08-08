@@ -13,6 +13,16 @@ public class ProductRequest {
     private String productId;
     
     
+    public ProductRequest() {
+    	
+    }
+    
+    public ProductRequest(String productName, String productImageUrl) {
+    	this.productName = productName;
+    	this.productImageUrl = productImageUrl;
+    }
+    
+    
     
 	public String getProductId() {
 		return productId;
