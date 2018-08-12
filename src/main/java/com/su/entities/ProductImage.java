@@ -14,72 +14,51 @@ import javax.persistence.Table;
 @Table(name = "product_image")
 public class ProductImage {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID")
+	@Column(name = "ID")
 	private Integer Id;
-	
-	@Column(name = "product_image_url")
-    private String productImageUrl;
-	
-	@Column(name = "product_image_thumbnail_url")
-    private String productImageThumbnailUrl;
 
-	
+	@Column(name = "product_image_url")
+	private String productImageUrl;
+
+	@Column(name = "product_image_thumbnail_url")
+	private String productImageThumbnailUrl;
+
 	@OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-	
-	
+	@JoinColumn(name = "product_id", nullable = false)
+	private Product product;
 
 	public Product getProduct() {
 		return product;
 	}
 
-
-
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-
-
 
 	public Integer getId() {
 		return Id;
 	}
 
-
-
 	public void setId(Integer id) {
 		Id = id;
 	}
-
-
 
 	public String getProductImageUrl() {
 		return productImageUrl;
 	}
 
-
-
 	public void setProductImageUrl(String productImageUrl) {
 		this.productImageUrl = productImageUrl;
 	}
-
-
 
 	public String getProductImageThumbnailUrl() {
 		return productImageThumbnailUrl;
 	}
 
-
-
 	public void setProductImageThumbnailUrl(String productImageThumbnailUrl) {
 		this.productImageThumbnailUrl = productImageThumbnailUrl;
 	}
-
-
-
 
 }

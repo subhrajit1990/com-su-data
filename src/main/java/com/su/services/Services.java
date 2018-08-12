@@ -103,7 +103,15 @@ public class Services {
 		// TODO Auto-generated method stub
 		response = new HashMap<String, Object>();
 		List<Object> allProductsResponse = allProductsRepository.fetchAll();
-		response.put("res",allProductsResponse);
+		
+		if(allProductsResponse.size() == 0) {
+			response.put("mesages","No Data Found");
+			response.put("status","100");
+		}else {
+			response.put("res",allProductsResponse);
+			response.put("status","0");
+		}
+		
 		return response;
 	}
 
